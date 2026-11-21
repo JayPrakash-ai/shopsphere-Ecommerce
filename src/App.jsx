@@ -67,7 +67,7 @@ function App() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://shopsphere-backend-evmc.onrender.com/api/products");
 
         if (!response.ok) {
           throw new Error("Unable to fetch products");
@@ -97,7 +97,7 @@ function App() {
   setAdminMessage("");
 
   try {
-    const response = await fetch("http://localhost:5000/api/products", {
+    const response = await fetch("https://shopsphere-backend-evmc.onrender.com/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -146,7 +146,7 @@ async function deleteProduct(productId) {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products/${productId}`,
+      `https://shopsphere-backend-evmc.onrender.com/api/products/${productId}`,
       {
         method: "DELETE",
       }
@@ -174,7 +174,7 @@ async function fetchMyOrders(email) {
     setOrdersMessage("");
 
     const response = await fetch(
-      `http://localhost:5000/api/orders?email=${encodeURIComponent(email)}`
+      `https://shopsphere-backend-evmc.onrender.com/api/orders?email=${encodeURIComponent(email)}`
     );
 
     const data = await response.json();
@@ -202,7 +202,7 @@ async function updateProduct(event) {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products/${editingProduct.id}`,
+      `https://shopsphere-backend-evmc.onrender.com/api/products/${editingProduct.id}`,
       {
         method: "PUT",
         headers: {
@@ -278,7 +278,7 @@ async function placeOrder(event) {
   setOrderMessage("");
 
   try {
-    const response = await fetch("http://localhost:5000/api/orders", {
+    const response = await fetch("https://shopsphere-backend-evmc.onrender.com/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -322,7 +322,7 @@ const adminLogin = async (event) => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/admin/login",
+      "https://shopsphere-backend-evmc.onrender.com/api/admin/login",
       {
         method: "POST",
         headers: {
@@ -354,7 +354,7 @@ const adminLogin = async (event) => {
 const fetchAdminOrders = async () => {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/admin/orders",
+      "https://shopsphere-backend-evmc.onrender.com/api/admin/orders",
       {
         headers: {
           Authorization: `Bearer ${adminToken}`
@@ -379,7 +379,7 @@ const fetchAdminOrders = async () => {
 const updateOrderStatus = async (orderId, newStatus) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/admin/orders/${orderId}/status`,
+      `https://shopsphere-backend-evmc.onrender.com/api/admin/orders/${orderId}/status`,
       {
         method: "PUT",
         headers: {
